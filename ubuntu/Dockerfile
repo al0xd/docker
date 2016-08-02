@@ -2,12 +2,12 @@ FROM phusion/baseimage:latest
 MAINTAINER Hung Dinh <hello@dinhvanhung.me>
 
 # Tell the conatiner there is no tty
-ENV DEBIAN_FRONTEND noninteractive
+#ENV DEBIAN_FRONTEND noninteractive
 
-ENV DEFAULT_TIMEZONE Vietnam/Hanoi
+#ENV DEFAULT_TIMEZONE Vietnam/Hanoi
 
 # Automatic choose local mirror for sources list
-COPY sources.list /etc/apt/sources.list
+#COPY sources.list /etc/apt/sources.list
 
 # Update to latest packages and tidy up
 RUN apt-get update \
@@ -16,8 +16,8 @@ RUN apt-get update \
   && apt-get -y clean \
   && rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/* 
 
-COPY . /app
+#COPY . /app
 
-RUN chmod +x /app/bin/*
+#RUN chmod +x /app/bin/*
 
-RUN ln -s /app/bin/set_timezone.sh /etc/my_init.d/00_set_timezone.sh
+#RUN ln -s /app/bin/set_timezone.sh /etc/my_init.d/00_set_timezone.sh
